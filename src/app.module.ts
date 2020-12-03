@@ -5,8 +5,14 @@ import { EmailModule } from './email/email.module';
 
 @Module({
   imports: [EmailModule, TypeOrmModule.forRoot({
-    type: 'mongodb',
-
+    type: 'postgres',
+    host:'127.0.0.1',
+    port:5432,
+    username:'root',
+    password:'root',
+    database: 'study',
+    synchronize: true,
+    autoLoadEntities: true,
   }),
 GraphQLModule.forRoot({
   autoSchemaFile: true

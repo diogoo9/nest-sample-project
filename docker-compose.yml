@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    ports: 
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_DB: study
+
+  pgadmin:
+    image: fenglc/pgadmin4root  
+    ports: 
+      - 5050:5050
+
+
+# user: pgadmin4@pgadmin.org
+# password: admin

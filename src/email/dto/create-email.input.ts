@@ -4,13 +4,12 @@ import { Column, PrimaryColumn } from 'typeorm';
 
 @InputType()
 export class CreateEmailInput {
-  @PrimaryColumn()
-  @Field(() => Int, { description: 'E-mail' })
+
+  @Field(() => String, { description: 'E-mail' })
   @IsNotEmpty()
   @IsEmail()
-  email: number;
+  email: string;
 
-  @Column()
   @Field(()=> String, {description: 'Nome' })
   @IsNotEmpty()
   name: string;

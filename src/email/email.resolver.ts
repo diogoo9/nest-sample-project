@@ -11,26 +11,26 @@ export class EmailResolver {
 
   @Mutation(() => Email)
   async createEmail(@Args('createEmailInput') createEmailInput: CreateEmailInput) {
-    return this.emailService.create(createEmailInput);
+    return await this.emailService.create(createEmailInput);
   }
 
   @Query(() => [Email], { name: 'email' })
   async findAll() {
-    return this.emailService.findAll();
+    return await this.emailService.findAll();
   }
 
   @Query(() => Email, { name: 'email' })
   async findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.emailService.findOne(id);
+    return await this.emailService.findOne(id);
   }
 
   @Mutation(() => Email)
   async updateEmail(@Args('updateEmailInput') updateEmailInput: UpdateEmailInput) {
-    return this.emailService.update(updateEmailInput);
+    return await this.emailService.update(updateEmailInput);
   }
 
   @Mutation(() => Email)
   async removeEmail(@Args('id', { type: () => Int }) id: number) {
-    return this.emailService.remove(id);
+    return await this.emailService.remove(id);
   }
 }

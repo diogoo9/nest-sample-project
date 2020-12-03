@@ -1,17 +1,15 @@
 import { CreateEmailInput } from './create-email.input';
 import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
-import { Column, PrimaryColumn } from 'typeorm';
 import { IsEmail, IsNotEmpty } from 'class-validator';
+import { Unique } from 'typeorm';
 
 @InputType()
 export class UpdateEmailInput extends PartialType(CreateEmailInput) {
-  @PrimaryColumn()
-  @Field(() => Int, { description: 'E-mail' })
+  @Field(() => String, { description: 'E-mail' })
   @IsNotEmpty()
   @IsEmail()
-  email: number;
+  email: string;
 
-  @Column()
   @Field(()=> String, {description: 'Nome' })
   @IsNotEmpty()
   name: string;
